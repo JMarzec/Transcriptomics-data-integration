@@ -35,12 +35,6 @@ The scripts for automated retrieval of data from ArrayExpress, GEO and SRA are l
 
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 
 # Methods
 
