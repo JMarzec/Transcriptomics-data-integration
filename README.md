@@ -31,7 +31,7 @@ The scripts and their execution commands used in each step in the **closed-platf
 <br />
 <br />
 
-The scripts for automated retrieval of data from ArrayExpress, GEO and SRA are located in [data_retrieval](https://github.com/JMarzec/data_retrieval/blob/master/README.md) repository.
+The scripts for automated retrieval of data from ArrayExpress, GEO and SRA are located in [data_retrieval](https://github.com/JMarzec/data_retrieval) repository.
 
 <br />
 <br />
