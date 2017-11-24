@@ -1,5 +1,6 @@
 # Pipeline for integrative analysis of transcriptomics data
 
+This repository describes a systematic analytical framework developed to integrate gene expression data from various RNA-seq and microarray platforms.<br><br>
 The pipeline starts with raw signal intensity files for microarrays and raw or read-count files for RNA-seq platforms. It contains four main stages: *quality control (QC)*, *pre-processing*, *summarisation* and *integrative analysis*. The workflow annotated with algorithms applied at individual steps is presented below:
 
 <img src="Figures/GE_analysis_overview.jpg" width="60%">
