@@ -162,6 +162,7 @@ In the proposed method *FC* values and *ICCs* are used as weighting factors to a
 >Plot illustrating the contribution of gene-specific *ICC* (x-axis) and *log<sub>2</sub> FC value* (indicated by different colours) to the weighting score used for *Stouffer’s* method. According to proposed model, along with the increase of *ICC* the weighting score raises, with greater extend of the increment attributed to higher *log<sub>2</sub> FC values*.
 
 <br />
+
 where *FC* and *I* indicate the *fold-change* value and the *ICC* for a given gene, respectively, as measured by *i<sup>th</sup>* platform.
 
 Additionally, *integration-driven discovery rates* (*IDRs*) are computed to evaluate the impact of meta-analysis on the final results *([Choi et al. 2003](https://www.ncbi.nlm.nih.gov/pubmed/12855442))*. Briefly, *IDRs* estimate the fraction of significant genes detected in meta-analysis that is not detected in any of the individual platforms for a given significance threshold. Each *Z score* is calculated as the ratio of average effect size over its *standard error*, and represents the statistical significance of the differential expression across multiple experiments.
