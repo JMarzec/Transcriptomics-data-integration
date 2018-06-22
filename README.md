@@ -45,10 +45,10 @@ The scripts for automated retrieval of data from ArrayExpress, GEO and SRA are l
 
 The quality of individual datasets is assessed separately using *[Aroma.affymetrix](http://www.aroma-project.org)* R package for Affymetrix exon arrays and *[arrayQualityMetrics](https://bioconductor.org/packages/release/bioc/html/arrayQualityMetrics.html)* as well as *[simpleaffy](https://www.bioconductor.org/packages/release/bioc/html/simpleaffy.html)* Bioconductor packages for 3’IVT Affymetrix and Illumina microarrays. *[ArrayQualityMetrics](https://bioconductor.org/packages/release/bioc/html/arrayQualityMetrics.html)* package handles most current microarray technologies and is useful for automated analysis pipelines and for automatic QC report generation. Additionally, *[simpleaffy](https://www.bioconductor.org/packages/release/bioc/html/simpleaffy.html)* provides access to a variety of Affymetrix QC metrics to assess the integrity of RNA samples and the intermediate stages of sample preparation and hybridisation. Aberrant arrays are identified by means of *[arrayMvout](https://www.bioconductor.org/packages/release/bioc/html/arrayMvout.html)* multivariate outlier detection tool implemented in Bioconductor project.
 
-Script | Description
+|Script | Description|
 ------------ | ------------
-[QC_Affy_[*platform*].R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Affy_U133Plus2.R) | Quality control of data from Affymetrix platforms
-[QC_Illum_HT_12_V3.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Illum_HT_12_V3.R) | Quality control of data from Illumina platform
+|[QC_Affy_[*platform*].R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Affy_U133Plus2.R) | Quality control of data from Affymetrix platforms|
+|[QC_Illum_HT_12_V3.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Illum_HT_12_V3.R) | Quality control of data from Illumina platform|
 <br />
 
 ### Probes filtering
