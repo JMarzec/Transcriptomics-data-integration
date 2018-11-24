@@ -47,7 +47,7 @@ The quality of individual datasets is assessed separately using *[Aroma.affymetr
 
 | Script | Description |
 | --- | --- |
-| [QC_Affy_[*platform*].R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Affy_U133Plus2.R) | Quality control of data from Affymetrix platforms |
+| [QC_Affy_platform.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Affy_U133Plus2.R) | Quality control of data from Affymetrix platforms |
 | [QC_Illum_HT_12_V3.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Illum_HT_12_V3.R) | Quality control of data from Illumina platform |
 <br />
 
