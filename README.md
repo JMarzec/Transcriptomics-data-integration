@@ -46,8 +46,13 @@ The scripts for automated retrieval of data from ArrayExpress, GEO and SRA are l
 The quality of individual datasets is assessed separately using *[Aroma.affymetrix](http://www.aroma-project.org)* R package for Affymetrix exon arrays and *[arrayQualityMetrics](https://bioconductor.org/packages/release/bioc/html/arrayQualityMetrics.html)* as well as *[simpleaffy](https://www.bioconductor.org/packages/release/bioc/html/simpleaffy.html)* Bioconductor packages for 3’IVT Affymetrix and Illumina microarrays. *[ArrayQualityMetrics](https://bioconductor.org/packages/release/bioc/html/arrayQualityMetrics.html)* package handles most current microarray technologies and is useful for automated analysis pipelines and for automatic QC report generation. Additionally, *[simpleaffy](https://www.bioconductor.org/packages/release/bioc/html/simpleaffy.html)* provides access to a variety of Affymetrix QC metrics to assess the integrity of RNA samples and the intermediate stages of sample preparation and hybridisation. Aberrant arrays are identified by means of *[arrayMvout](https://www.bioconductor.org/packages/release/bioc/html/arrayMvout.html)* multivariate outlier detection tool implemented in Bioconductor project.
 
 | Script | Description |
-| --- | --- |
-| [QC_Affy_platform.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Affy_U133Plus2.R) | Quality control of data from Affymetrix platforms |
+| ------------- | ------------- |
+| test | Quality control of data from Affymetrix platforms |
+| test2 | Quality control of data from Illumina platform |
+
+| Script | Description |
+| ------------- | ------------- |
+| [QC_Affy_[*platform*].R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Affy_U133Plus2.R) | Quality control of data from Affymetrix platforms |
 | [QC_Illum_HT_12_V3.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Illum_HT_12_V3.R) | Quality control of data from Illumina platform |
 <br />
 
@@ -58,7 +63,7 @@ Approach for cross-referencing probes from different microarray platforms implem
 Probe sequence alignments and annotation with individual genes available within the *[Ensembl](http://www.ensembl.org/index.html)* database (release 87, December 2016, human genome build GRCh38) are retrieved using Perl *Application Programme Interface* (*API*). In order to increase cross-platform concordance, probes with low specificity are identified, hereafter called unreliable probes, and discarded prior to downstream analysis. For Affymetrix HG U133 Plus 2.0, U133A 2.0, U133A, U133B, U95Av2, U95B and U95C arrays, only probesets composed of not more than two probes with either mismatch, insertion, deletion, or mapping to none or more than one gene were retained. Moreover, Affymetrix probesets comprising probes mapping to different genes are excluded. For downstream analysis of data from Illumina array, only probes with perfect match and mapping to exactly one gene are kept.
 
 Script | Description
---- | ---
+------------- | -------------
 [ArrayAnnot.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/ArrayAnnot.pl) | Annotate probes based on Ensembl mapping
 [ProbeFilter.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/ProbeFilter.pl) | Filter out unreliable probes
 <br />
@@ -70,7 +75,7 @@ Gene expression data obtained from the same array platform are normalised collec
 In order to resolve the issue of “many-to-many” relationships between probes and genes, and to unify microarray probe and sequencing read annotations across platforms, multiple probes mapping to the same gene are further condensed to build “one-probe-to-one-gene” relations. This is achieved by selecting probes (Illumina) or probesets (Affymetrix) with the *highest standard deviation* across samples.
 
 Script | Description
---- | ---
+------------- | -------------
 [GenExpressionComb_Affy_[*platform*].R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/GenExpressionComb_Affy_U133Plus2.R) | Merge, normalise and aggregate Affymetrix data to single values per gene
 [GenExpressionComb_Illum_HT_12_V3.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/GenExpressionComb_Illum_HT_12_V3.R) | Merge, normalise and aggregate Illumina data to single values per gene
 <br />
@@ -85,7 +90,7 @@ Subsequently, high-quality data are aligned to the GRCh38 reference genome using
 The alignment results are summarised by matching read mappings against reference targets representing biologically meaningful expression units. As for the microarray probes summarisation process, the Ensembl gene set is used for the annotation, to ensure annotation compatibility between microarray probes and sequencing reads across various datasets and platforms. *[Htseq-count](http://www-huber.embl.de/HTSeq/doc/overview.html)* tool implemented in *[HTSeq](http://www-huber.embl.de/HTSeq/doc/overview.html)* Python library is applied to count the number of aligned reads that overlap with the individual gene’s coding region. The read count of four is set as a minimal threshold to estimate the genes’ expression. Three or less reads mapping to corresponding gene were deemed to be insufficient to accurately represent its expression and thus it was assumed to be not expressed.
 
 Script | Description
---- | ---
+------------- | -------------
 [GenExpression_RNAseq.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/GenExpression_RNAseq.pl) | Aggregate reads into single count value per gene (*raw data only*)
 [Get_gene_info.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/Get_gene_info.pl) | Retrieve genes’ length and GC content from Ensembl
 <br />
@@ -95,7 +100,7 @@ Script | Description
 In this pipeline, the read-count data are subjected to *[conditional quantile normalisation](http://bioconductor.org/packages/release/bioc/html/cqn.html)* (*CQN*). This statistical methodology combines *robust generalised regression* to remove systematic bias introduced by deterministic features such as GC-content and gene length, and *quantile normalisation* to correct for global distortions. Additionally, a *voom()* normalisation function embedded within *[limma](http://bioconductor.org/packages/release/bioc/html/limma.html)* Bioconductor package is applied to log-transform the normalised read counts, estimate the mean-variance and to determine the weight of each observation for differential expression analysis.
 
 Script | Description
---- | ---
+------------- | -------------
 [GenExpressionComb_RNAseq.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/GenExpressionComb_RNAseq.pl) | Merge datasets
 [GenExpressionComb_RNAseq.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/GenExpressionComb_RNAseq.R)  | Normalise datasets
 <br />
@@ -109,7 +114,7 @@ Script | Description
 An *empirical Bayes* algorithm implemented in *[ComBat()](https://bioconductor.org/packages/release/bioc/html/sva.html)* R function is employed for identifying and removing batch effects from high-throughput expression data. It is superior to other procedures, particularly in case of high dimensional-data with small sample sizes, and is applicable to both microarray and RNA-seq data *([Johnson et al. 2007](https://www.ncbi.nlm.nih.gov/pubmed/16632515), [Chen et al. 2011](https://www.ncbi.nlm.nih.gov/pubmed/21386892), [Müller et al. 2016](https://www.ncbi.nlm.nih.gov/pubmed/27272489))*. *[ComBat()](https://bioconductor.org/packages/release/bioc/html/sva.html)* is applied to detect and remove batch effects in cross-study data generated on the same platform. Once non-biological experimental variation across datasets is identified and removed, expression data derived from the same platform are merged into a single expression matrix, which is then used for differential expression analysis.
 
 Script | Description
---- | ---
+------------- | -------------
 [Study_effect.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/Study_effect.R) | Study effect assessment
 <br />
 
@@ -118,7 +123,7 @@ Script | Description
 Differential expression analyses are performed independently for batch effect-adjusted expression data derived from each platform. Initially, *non-specific gene filtering* is applied to reduce the dimensionality of the data. Genes with low expression level variability across samples are eliminated, as they were unlikely to provide information about the phenotype of interest. Ultimately, 3,000 genes, for the sparse platforms, and up to 10,000 genes, for the most comprehensive platforms, with the highest standard deviation across all samples are considered for downstream analyses. Subsequently, the *linear modelling* functions from *[limma](http://bioconductor.org/packages/release/bioc/html/limma.html)* Bioconductor package, primarily developed and optimised for microarray and latterly adapted for sequencing data, are used for differential expression analysis. It is recognised that the performance of the *[limma](http://bioconductor.org/packages/release/bioc/html/limma.html)* R package is comparable or superior in some respects when compared to algorithms specifically designed for RNA-seq data *([Seyednasrollah et al. 2015](https://www.ncbi.nlm.nih.gov/pubmed/24300110), [Rapaport et al. 2013](https://www.ncbi.nlm.nih.gov/pubmed/24020486), [Soneson and Delorenzi 2013](https://www.ncbi.nlm.nih.gov/pubmed/23497356))*. For each platform, the expression *fold-changes* (*FC*) and *P values* are computed for all genes. *P values* are adjusted for multiple testing using *Benjamini and Hochberg* (*BH*) method *([Benjamini and Hochberg 1995](https://www.jstor.org/stable/2346101?seq=1#page_scan_tab_contents))*.
 
 Script | Description
---- | ---
+------------- | -------------
 [DiffExpression_closedPlatform.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/DiffExpression_closedPlatform.R)  | Batch effect removal and differential expression analysis (microarrays)
 [DiffExpression_openPlatform.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/DiffExpression_openPlatform.R)  | Batch effect removal and differential expression analysis (RNA-seq)
 <br />
@@ -168,7 +173,7 @@ where *FC* and *I* indicate the *fold-change* value and the *ICC* for a given ge
 Additionally, *integration-driven discovery rates* (*IDRs*) are computed to evaluate the impact of meta-analysis on the final results *([Choi et al. 2003](https://www.ncbi.nlm.nih.gov/pubmed/12855442))*. Briefly, *IDRs* estimate the fraction of significant genes detected in meta-analysis that is not detected in any of the individual platforms for a given significance threshold. Each *Z score* is calculated as the ratio of average effect size over its *standard error*, and represents the statistical significance of the differential expression across multiple experiments.
 
 Script | Description
---- | ---
+------------- | -------------
 [Meta_analysis.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/Meta_analysis.R) | Meta-analysis
 <br />
 
