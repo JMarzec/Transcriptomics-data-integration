@@ -1,6 +1,7 @@
 # Pipeline for integrative analysis of transcriptomics data
 
-This repository describes a systematic analytical framework developed to integrate gene expression data from various RNA-seq and microarray platforms.<br><br>
+This repository describes a systematic analytical framework developed to integrate gene expression data from various RNA-seq and microarray platforms. <br/><br/>
+An example capability of this pipeline is presented in recent publication by *[Marzec et al. (2021)](https://pubmed.ncbi.nlm.nih.gov/33477882)* aiming to reconstruct the [prostate cancer molecular profile](https://pubmed.ncbi.nlm.nih.gov/33477882) and yielding the first comprehensive insight into its development and progression, by tracking changes in mRNA levels from normal prostate to high-grade prostatic intraepithelial neoplasia, and metastatic disease.<br><br>
 The pipeline starts with raw signal intensity files for microarrays and raw or read-count files for RNA-seq platforms. It contains four main stages: *quality control (QC)*, *pre-processing*, *summarisation* and *integrative analysis*. The workflow annotated with algorithms applied at individual steps is presented below:
 
 <img src="Figures/GE_analysis_overview.jpg" width="60%">
