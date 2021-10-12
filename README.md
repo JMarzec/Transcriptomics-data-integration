@@ -49,8 +49,8 @@ The quality of individual datasets is assessed separately using *[Aroma.affymetr
 
 Script | Description
 ------------- | -------------
-[QC_Affy_[*platform*].R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Affy_U133Plus2.R) | Quality control of data from Affymetrix platforms
-[QC_Illum_HT_12_V3.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/QC_Illum_HT_12_V3.R) | Quality control of data from Illumina platform
+[QC_Affy_[*platform*].R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/microarray_data_processing/QC_Affy_U133Plus2.R) | Quality control of data from Affymetrix platforms
+[QC_Illum_HT_12_V3.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/microarray_data_processing/QC_Illum_HT_12_V3.R) | Quality control of data from Illumina platform
 
 <br />
 
@@ -62,8 +62,8 @@ Probe sequence alignments and annotation with individual genes available within 
 
 Script | Description
 ------------- | -------------
-[ArrayAnnot.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/ArrayAnnot.pl) | Annotate probes based on Ensembl mapping
-[ProbeFilter.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/ProbeFilter.pl) | Filter out unreliable probes
+[ArrayAnnot.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/microarray_data_processing/ArrayAnnot.pl) | Annotate probes based on Ensembl mapping
+[ProbeFilter.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/microarray_data_processing/ProbeFilter.pl) | Filter out unreliable probes
 
 <br />
 
@@ -75,8 +75,8 @@ In order to resolve the issue of “many-to-many” relationships between probes
 
 Script | Description
 ------------- | -------------
-[GenExpressionComb_Affy_[*platform*].R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/GenExpressionComb_Affy_U133Plus2.R) | Merge, normalise and aggregate Affymetrix data to single values per gene
-[GenExpressionComb_Illum_HT_12_V3.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/GenExpressionComb_Illum_HT_12_V3.R) | Merge, normalise and aggregate Illumina data to single values per gene
+[GenExpressionComb_Affy_[*platform*].R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/microarray_data_processing/GenExpressionComb_Affy_U133Plus2.R) | Merge, normalise and aggregate Affymetrix data to single values per gene
+[GenExpressionComb_Illum_HT_12_V3.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/microarray_data_processing/GenExpressionComb_Illum_HT_12_V3.R) | Merge, normalise and aggregate Illumina data to single values per gene
 
 <br />
 
@@ -91,8 +91,8 @@ The alignment results are summarised by matching read mappings against reference
 
 Script | Description
 ------------- | -------------
-[GenExpression_RNAseq.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/GenExpression_RNAseq.pl) | Aggregate reads into single count value per gene (*raw data only*)
-[Get_gene_info.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/Get_gene_info.pl) | Retrieve genes’ length and GC content from Ensembl
+[GenExpression_RNAseq.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/rna-seq_data_processing/GenExpression_RNAseq.pl) | Aggregate reads into single count value per gene (*raw data only*)
+[Get_gene_info.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/rna-seq_data_processing/Get_gene_info.pl) | Retrieve genes’ length and GC content from Ensembl
 
 <br />
 
@@ -102,8 +102,8 @@ In this pipeline, the read-count data are subjected to *[conditional quantile no
 
 Script | Description
 ------------- | -------------
-[GenExpressionComb_RNAseq.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/GenExpressionComb_RNAseq.pl) | Merge datasets
-[GenExpressionComb_RNAseq.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/GenExpressionComb_RNAseq.R)  | Normalise datasets
+[GenExpressionComb_RNAseq.pl](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/rna-seq_data_processing/GenExpressionComb_RNAseq.pl) | Merge datasets
+[GenExpressionComb_RNAseq.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/rna-seq_data_processing/GenExpressionComb_RNAseq.R)  | Normalise datasets
 
 <br />
 
@@ -117,7 +117,7 @@ An *empirical Bayes* algorithm implemented in *[ComBat()](https://bioconductor.o
 
 Script | Description
 ------------- | -------------
-[Study_effect.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/Study_effect.R) | Study effect assessment
+[Study_effect.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/data_integration/Study_effect.R) | Study effect assessment
 
 <br />
 
@@ -127,8 +127,8 @@ Differential expression analyses are performed independently for batch effect-ad
 
 Script | Description
 ------------- | -------------
-[DiffExpression_closedPlatform.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/DiffExpression_closedPlatform.R)  | Batch effect removal and differential expression analysis (microarrays)
-[DiffExpression_openPlatform.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/DiffExpression_openPlatform.R)  | Batch effect removal and differential expression analysis (RNA-seq)
+[DiffExpression_closedPlatform.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/data_integration/DiffExpression_closedPlatform.R)  | Batch effect removal and differential expression analysis (microarrays)
+[DiffExpression_openPlatform.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/data_integration/DiffExpression_openPlatform.R)  | Batch effect removal and differential expression analysis (RNA-seq)
 
 <br />
 
@@ -178,7 +178,7 @@ Additionally, *integration-driven discovery rates* (*IDRs*) are computed to eval
 
 Script | Description
 ------------- | -------------
-[Meta_analysis.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/Meta_analysis.R) | Meta-analysis
+[Meta_analysis.R](https://github.com/JMarzec/transcriptomics_data_integration/blob/master/scripts/data_integration/Meta_analysis.R) | Meta-analysis
 
 <br />
 
