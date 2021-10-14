@@ -1,2 +1,2 @@
-
+# Skip MacOs specific files
 .DS_Store
